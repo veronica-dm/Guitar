@@ -35,7 +35,7 @@ a {
         height: 24px;
         background-image: url(../images/header-bottom.svg);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         position: absolute;
         bottom: -24px;
     }
