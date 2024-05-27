@@ -5,6 +5,7 @@
 body {
     font-family: $font;
     font-weight: 400;
+    background-color: #1F2023;
 }
  
 a {
@@ -28,22 +29,24 @@ a {
         left: 0;
         z-index: -1;
     }
-    &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 24px;
-        background-image: url(../images/header-bottom.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        position: absolute;
-        bottom: -24px;
-    }
+  
     &__logo {
         background-color: $accent;
         padding: 17px 45px 0 45px;
         border-radius: 10px 0 0 0;
         position: relative;
+        &::before {
+            content: '';
+            display: block;
+            width: 26px;
+            height: 24px;
+            background-image: url(../images/header-bottom-left.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            left:0;
+            bottom: -24px;
+        }
         &::after {
             content: '';
             display: block;
@@ -69,14 +72,111 @@ a {
         &::before {
             content: '';
             display: block;
+            width: 26px;
+            height: 24px;
+            background-image: url(../images/header-bottom-right.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right:0;
+            bottom: -24px;
+        }
+        &::after {
+            content: '';
+            display: block;
             width: 68px;
             height: 71px;
             background-image: url(../images/header-right.svg);
             position: absolute;
             top:0;
-            right: 250px;
+            left: -68px;
 
 
         }
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1830px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.banner {
+    margin-top: 40px;
+    display: flex;
+    background-image: url(../images/bg-banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50px;
+
+    &__main {
+        display: flex;
+        padding-left: 50px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        flex-direction: column;
+        gap:20px;
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 64px;
+        line-height: 1.1;
+        font-weight: 700;
+        color:$light;
+        max-width: 1031px;
+    }
+    &__box {
+        display: flex;
+        flex-direction: column;
+        gap:30px;
+        padding: 30px 30px;
+        border: 1px solid $light;
+        border-radius: 20px;
+        max-width: 1031px;
+        position: relative;
+    }
+    &__btn {
+        border: 0;
+        background-color: $accent;
+        color:$light;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 1.1;
+        letter-spacing: 5%;
+        font-weight: 700;
+        padding: 54px 423.5px;
+        border-radius: 20px;
+        margin-top: 105px;
+    }
+
+}
+
+.banner-box {
+    &__title {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.1;
+        font-weight: 400;
+        color:$light;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.5;
+        font-weight: 400;
+        color:$light;
+        max-width: 669px;
+    }
+
+    > img {
+        position: absolute;
+        right: -30px;
+        top: -70px;
     }
 }
