@@ -6,6 +6,7 @@ body {
     font-family: $font;
     font-weight: 400;
     background-color: #1F2023;
+    color:$light;
 }
  
 a {
@@ -13,11 +14,15 @@ a {
 }
 
 .header {
+    width: 100%;
     display: flex;
     align-items: stretch;
     justify-content: space-between;
     height: 71px;
-    position: relative;
+    // position: relative;
+    position: fixed;
+    top:0;
+    left:0;
     &::before {
         content: '';
         display: block;
@@ -102,23 +107,79 @@ a {
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
+    box-sizing: border-box;
 }
 
 .banner {
-    margin-top: 40px;
+    margin-top: 135px;
     display: flex;
+    gap: 50px;
     background-image: url(../images/bg-banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50px;
+    padding: 100px 50px;
 
     &__main {
         display: flex;
-        padding-left: 50px;
-        padding-top: 100px;
-        padding-bottom: 100px;
+        flex-basis: 61%;
         flex-direction: column;
         gap:20px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap:17px;
+        flex-basis: calc(39% - 50px);
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        position: relative;
+        height: 151px;
+        border: 1px solid $light;
+        border-right: none;
+        border-radius: 20px 0 0 20px;
+        margin-right: 80px;
+        &::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 151px;
+            background-image: url(../images/banner-info-decor.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: -80px;
+            top:0;
+        }
+        &-title {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap:9px;
+            padding: 45px 30px;
+            font-size: 24px;
+            line-height: 1.1;
+            font-weight: 200;
+
+
+        }
+        &-time {
+            margin: 0;
+            font-size: 32px;
+            line-height: 1.1;
+            font-weight: 700;
+
+        }
+    }
+    &__decor{
+        position: absolute;
+        top:0;
+        right: -60px;
     }
 
     &__title {
@@ -126,42 +187,55 @@ a {
         font-size: 64px;
         line-height: 1.1;
         font-weight: 700;
-        color:$light;
-        max-width: 1031px;
+        // max-width: 1031px;
     }
-    &__box {
-        display: flex;
-        flex-direction: column;
-        gap:30px;
-        padding: 30px 30px;
-        border: 1px solid $light;
-        border-radius: 20px;
-        max-width: 1031px;
-        position: relative;
-    }
+   
     &__btn {
-        border: 0;
-        background-color: $accent;
+        display: block;
+        width: 100%;
+        border: none;
         color:$light;
+        background-color: $accent;
+        border: 1px solid $accent;
         text-transform: uppercase;
+        font-family: $font;
         font-size: 20px;
         line-height: 1.1;
         letter-spacing: 5%;
-        font-weight: 700;
-        padding: 54px 423.5px;
+        font-weight: 600;
+        // padding: 54px 423.5px;
+        padding: 54px;
         border-radius: 20px;
-        margin-top: 105px;
+        margin-top: 110px;
+        transition: $tr;
+        cursor: pointer;
+        @media(hover: hover) {
+            &:hover {
+                background-color: transparent;
+            }
+        }
+       
     }
 
 }
 
 .banner-box {
+
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    padding: 30px;
+    border: 1px solid $light;
+    border-radius: 20px;
+    // max-width: 1031px;
+    position: relative;
+
     &__title {
         margin: 0;
         font-size: 24px;
         line-height: 1.1;
+        letter-spacing: 1.2px;
         font-weight: 400;
-        color:$light;
         text-transform: uppercase;
     }
 
@@ -170,13 +244,15 @@ a {
         font-size: 20px;
         line-height: 1.5;
         font-weight: 400;
-        color:$light;
         max-width: 669px;
     }
 
-    > img {
+    &__img {
         position: absolute;
-        right: -25px;
-        top: -90px;
+        
+        &._electroguitar {
+            right: -20px;
+            top: -68px;
+        }
     }
 }
