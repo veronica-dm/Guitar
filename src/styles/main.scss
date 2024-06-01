@@ -423,6 +423,10 @@ a {
             height: 24px;
 
         }
+        &:hover {
+            background-color: $accent;
+            border: 1px solid $accent;
+        }
     }
     &__prev {
         &::after {
