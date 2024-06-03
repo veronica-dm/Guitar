@@ -502,21 +502,23 @@ a {
 .accordion {
 
     &__btn {
-        margin-top:50px;
-        margin-bottom:24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         font-family: $font;
         font-size:32px;
+        font-weight: 400;
         color: $accent;
-        padding: 27.5px 30px;
+        // padding: 27.5px 30px;
+        padding: 20px 25px 20px 30px;
+        border:none;
         border-radius: 20px;
         width: 100%;
-        text-align: left;
-        position: relative;
-        font-weight: 400;
+        margin-top:50px;
+        margin-bottom:24px;
+        
         &::after {
-            position: absolute;
-            right:24px;
-            top:20px;
+            
             display: block;
             content: '';
             width: 50px;
@@ -535,10 +537,8 @@ a {
 
     &__panel {
         max-height: 0;
-        // height: 512px;
         overflow: hidden;
         transition: max-height 0.2s ease-in-out;
-        padding: 30px 50px;
         background-color: $light;
         color:$dark;
         border-radius: 20px;
@@ -546,9 +546,11 @@ a {
     &__list {
         list-style-type: none;
         padding-left: 0;
+        margin: 0;
+        padding: 30px 50px;
         display: flex;
         flex-direction: column;
-        gap:30px;
+        gap:45px;
     }
 
     &__item {
