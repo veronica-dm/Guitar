@@ -113,6 +113,21 @@ a {
     }
 }
 
+.logo {
+    &._max {
+        svg {
+            width:400px;
+            height:31px; 
+        }
+    }
+    &._min {
+        svg {
+            width: 296px;
+            height: 22px;
+        }
+    }
+}
+
 .container {
     width: 100%;
     max-width: 1830px;
@@ -680,13 +695,13 @@ a {
 .areas {
     &__block {
         margin-top: 50px;
+        margin-bottom: 150px;
     }
     &__link {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 30px;
-        border-bottom: 1px solid $accent;
         background-color: transparent;
         border-radius: 0;
         transition: $tr;
@@ -694,6 +709,10 @@ a {
         font-size: 32px;
         line-height: 1.5;
         position: relative;
+        &:not(:last-child) {
+            border-bottom: 1px solid $accent;
+            margin-bottom: 30px;
+        }
         &:hover {
             background-color: $accent;
             border-radius: 10px;
@@ -722,9 +741,9 @@ a {
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
-            left:0;
-            right: 0;
-            margin: 0 auto;
+            left:770px;
+            // right: 0;
+            // margin: 0 auto;
             opacity: 0;
             transition: $tr;
             transform: scale(0);
@@ -733,10 +752,11 @@ a {
         &._acoustic {
             &::before {
                 
-                height: 314px;
-                width: 568px;
+                height: 263px;
+                width: 509px;
                 background-image: url(../images/areas/acoustic.png);
-                top: calc(50% - 190px);
+                top: calc(50% - 120px);
+                
                 
             }
         }
@@ -744,10 +764,11 @@ a {
         &._drums {
             &::before {
                 
-                height: 314px;
-                width: 568px;
+                height: 408px;
+                width: 352px;
                 background-image: url(../images/areas/drums.png);
-                top: calc(50% - 190px);
+                top: calc(50% - 204px);
+                
                 
             }
         }
@@ -755,10 +776,11 @@ a {
         &._violin {
             &::before {
                 
-                height: 314px;
-                width: 568px;
+                height: 401px;
+                width: 535px;
                 background-image: url(../images/areas/violin.png);
-                top: calc(50% - 190px);
+                top: calc(50% - 200px);
+                
                 
             }
         }
@@ -766,12 +788,101 @@ a {
         &._bas-guitar {
             &::before {
                 
-                height: 314px;
-                width: 568px;
+                height: 372px;
+                width: 524px;
                 background-image: url(../images/areas/bas-guitar.png);
-                top: calc(50% - 190px);
+                top: calc(50% - 160px);
+                
                 
             }
         }
+    }
+}
+
+.social {
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap:11px;
+    
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background-color: $light;
+        transition: $tr;
+        
+        &:hover {
+            background-color: $accent;
+            &::after {
+                background-color: $light;
+
+            }
+        }
+        &::after {
+            content: '';
+            display: block;
+            background-color: $accent;
+            mask: center center / 100% no-repeat;
+            -webkit-mask: center center / 100% no-repeat;
+        }
+        &._wa {
+            &::after {
+                width: 28.125px;
+                height: 28.125px;
+                mask-image: url(../images/social/wa.svg);
+                -webkit-mask-image: url(../images/social/wa.svg);
+            }
+        }
+        &._vk {
+            &::after {
+                width: 31.25px;
+                height: 18.75px;
+                mask-image: url(../images/social/vk.svg);
+                -webkit-mask-image: url(../images/social/vk.svg);
+            }
+        }
+        &._tg {
+            &::after {
+                width: 25px;
+                height: 21.875px;
+                mask-image: url(../images/social/tg.svg);
+                -webkit-mask-image: url(../images/social/tg.svg);
+            }
+        }
+    }
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    gap: 10px 20px;
+    background-color: $dark;
+    padding: 30px 50px;
+    border-radius: $br-min;
+    margin-bottom: 30px;
+    &__text {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        & + & {
+            margin-top: 6px;
+        }
+    }
+    &__link {
+        color: $accent;
+        transition: $tr;
+        box-shadow: 0 4px 0 -3px $accent;
+        &:hover {
+            box-shadow: 0 4px 0 -3px transparent;
+        }
+    }
+    &__copy {
+        text-align: right;
+        align-self: end;
     }
 }
