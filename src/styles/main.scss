@@ -52,6 +52,9 @@ a {
         padding: 17px 45px 0 45px;
         border-radius: 10px 0 0 0;
         position: relative;
+        @media (max-width: $r_desk){
+            padding: 17px 20px 0 20px;
+        }
         &::before {
             content: '';
             display: block;
@@ -78,14 +81,14 @@ a {
         }
 
     }
-   
-    &__link {
-        color: $light;
-        font-size: 20px;
-        padding: 17px 45px 0 45px;
+    &__info {
         background-color: $accent;
-        border-radius: 0 10px 0 0;
+        padding: 17px 45px 0 45px;
         position: relative;
+        border-radius: 0 10px 0 0;
+        @media (max-width: $r_desk){
+            padding: 17px 20px 0 20px;
+        }
         &::before {
             content: '';
             display: block;
@@ -111,6 +114,22 @@ a {
 
         }
     }
+   
+    &__link {
+        color: $light;
+        font-size: 20px;
+        border-bottom: 1px solid $light;
+        padding-bottom: 5px;
+        transition: $tr;
+        
+        @media (hover: hover) {
+            &:hover {
+                border-bottom: 1px solid $accent;
+            }
+        
+        }
+        
+    }
 }
 
 .logo {
@@ -132,9 +151,13 @@ a {
     width: 100%;
     max-width: 1830px;
     margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
     box-sizing: border-box;
+    @media (max-width: $r_desk){
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 .banner {
@@ -176,23 +199,25 @@ a {
         padding: 30px;
         box-sizing: border-box;
         transition: $tr;
-        &:hover {
+        @media (hover: hover) {
+            &:hover {
             
-            &::before {
-                width: 100%;
-                // transform: translate(0 0) scale(1);
-                transform: scale(1);
-                opacity: 1;
-            }
-            .banner__decor {
-                background-color: $accent;
-                border-color: $accent;
-                &::after {
-                    opacity: 1;
+                &::before {
+                    width: 100%;
                     // transform: translate(0 0) scale(1);
                     transform: scale(1);
+                    opacity: 1;
                 }
-            }
+                .banner__decor {
+                    background-color: $accent;
+                    border-color: $accent;
+                    &::after {
+                        opacity: 1;
+                        // transform: translate(0 0) scale(1);
+                        transform: scale(1);
+                    }
+                }
+        }
         }
 
         &::before {
@@ -358,9 +383,12 @@ a {
     display: flex;
     gap:64px;
     animation: move-left 20s infinite linear alternate;
-    &:hover {
-        animation-play-state: paused;
+    @media (hover: hover) {
+        &:hover {
+            animation-play-state: paused;
+        }
     }
+    
 
     &__text {
         margin:0;
@@ -436,10 +464,13 @@ a {
             height: 24px;
 
         }
-        &:hover {
-            background-color: $accent;
-            border-color: $accent;
+        @media (hover: hover) {
+            &:hover {
+                background-color: $accent;
+                border-color: $accent;
+            }
         }
+        
     }
     &__prev {
         &::after {
@@ -462,13 +493,16 @@ a {
         border-radius: $br-max;
         overflow: hidden;
         transition: $tr;
-        &:hover {
-            border-color: $accent;
-            .slider-teacher__name,
-            .slider-teacher__grid {
-                opacity:1;
+        @media (hover: hover) {
+            &:hover {
+                border-color: $accent;
+                .slider-teacher__name,
+                .slider-teacher__grid {
+                    opacity:1;
+                }
             }
         }
+       
     }
     &__grid{
         position: absolute;
@@ -713,17 +747,20 @@ a {
             border-bottom: 1px solid $accent;
             margin-bottom: 30px;
         }
-        &:hover {
-            background-color: $accent;
-            border-radius: 10px;
-            &::after {
-                transform: rotate(45deg);
-            }
-            &::before {
-                opacity: 1;
-                transform: scale(1);
+        @media (hover: hover){
+            &:hover {
+                background-color: $accent;
+                border-radius: 10px;
+                &::after {
+                    transform: rotate(45deg);
+                }
+                &::before {
+                    opacity: 1;
+                    transform: scale(1);
+                }
             }
         }
+        
         &::after {
             content: '';
             display: block;
@@ -805,7 +842,7 @@ a {
     justify-content: flex-end;
     align-items: center;
     gap:11px;
-    
+
     &__link {
         display: flex;
         justify-content: center;
@@ -815,14 +852,16 @@ a {
         border-radius: 10px;
         background-color: $light;
         transition: $tr;
-        
-        &:hover {
-            background-color: $accent;
-            &::after {
-                background-color: $light;
-
+        @media (hover: hover) {
+            &:hover {
+                background-color: $accent;
+                &::after {
+                    background-color: $light;
+    
+                }
             }
         }
+        
         &::after {
             content: '';
             display: block;
@@ -877,9 +916,12 @@ a {
         color: $accent;
         transition: $tr;
         box-shadow: 0 4px 0 -3px $accent;
-        &:hover {
-            box-shadow: 0 4px 0 -3px transparent;
+        @media (hover: hover) {
+            &:hover {
+                box-shadow: 0 4px 0 -3px transparent;
+            }
         }
+        
     }
     &__copy {
         text-align: right;
