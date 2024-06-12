@@ -632,9 +632,14 @@ a {
         border: 1px solid $dark;
         box-sizing: border-box;
         position: relative;
+        z-index: 2;
         border-radius: $br-max;
         overflow: hidden;
         transition: $tr;
+        @media (max-width: $r_tab) {
+            border: 1px solid $accent;
+        }
+        
         @media (max-width: $r_desk_full) {
             height: min(672px, 47vw);
         }
@@ -685,6 +690,26 @@ a {
         @media (max-width: $r_desk_full) {
             text-align: center;
             left:0;
+        }
+        &._desktop {
+            @media (max-width: $r_tab){
+                display: none;
+            }
+        }
+        &._mobile {
+            display: none;
+            font-size: 12px;
+            margin-top: 8px;
+            opacity: 1;
+            position: inherit;
+            bottom: inherit;
+            left:inherit;
+            @media (max-width: $r_tab){
+                display: block;
+            }
+            &::before {
+                display: none;
+            }
         }
         &::before {
             content: '';
@@ -830,6 +855,40 @@ a {
 .result {
     margin-top: 150px;
     margin-bottom: 150px;
+    container-type: inline-size;
+    container-name: result;
+    @container result (max-width: 935px) {
+        .result__list {
+            grid-template-columns: repeat(2, 1fr);
+            padding-bottom: 140px;
+        }
+        .result__item._subgrid {
+            grid-column: inherit;
+            grid-template-columns: inherit;
+        }
+        .result__btn {
+            grid-column: inherit;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            // width: calc(100% + 100% + 30px);
+            right: 0;
+            padding: 43px 30px;
+            //font-size: 16px;
+        }
+    }
+   
+    @container result (max-width: 600px) {
+        .result__btn {
+            font-size: clamp(14px, 3cqi, 20px);
+        }
+    }
+
+    @container result (max-width: 450px) {
+        .result__list {
+            grid-template-columns: 1fr;
+        }
+    }
     @media (max-width: $r_desk) {
         margin-top: 100px;
         margin-bottom: 100px;
@@ -844,17 +903,28 @@ a {
         grid-template-columns: repeat(4, 1fr);
         gap:30px;
         margin-top: 50px;
+        position: relative;
+        @media (max-width: $r_tab) {
+            gap: 20px;
+        }
     }
     &__item {
         background-color: $light;
         border-radius: $br-min;
         padding: 30px;
+        
+        @media (max-width: $r_desk) {
+            padding: clamp(20px, 2.8vw, 30px);
+        }
         &._subgrid {
             grid-column: 2 / 5;
             display: grid;
             grid-template-columns: subgrid;
             grid-template-rows: 130px;
             align-items: center;
+            @media (max-width: $r_desk) {
+                grid-template-rows: inherit;
+            }
         }
     }
     &__desc {
@@ -929,7 +999,8 @@ a {
         border-radius: 0;
         transition: $tr;
         color:$light;
-        font-size: 32px;
+        //font-size: 32px;
+        font-size: clamp(20px, 5vw - 2rem, 32px);
         line-height: 1.5;
         position: relative;
         &:not(:last-child) {
@@ -967,7 +1038,8 @@ a {
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
-            left:770px;
+            //left:770px;
+            left: 44vw;
             // right: 0;
             // margin: 0 auto;
             opacity: 0;
@@ -977,11 +1049,15 @@ a {
 
         &._acoustic {
             &::before {
-                
+                width: clamp(200px, 41vw, 509px);
                 height: 263px;
-                width: 509px;
+                //width: 509px;
                 background-image: url(../images/areas/acoustic.png);
                 top: calc(50% - 120px);
+                background-position: center;
+                @media (max-width: $r_desk_min) {
+                    display: none;
+                }
                 
                 
             }
@@ -989,11 +1065,15 @@ a {
 
         &._drums {
             &::before {
-                
+                width: clamp(200px, 15vw, 352px);
                 height: 408px;
-                width: 352px;
+                //width: 352px;
                 background-image: url(../images/areas/drums.png);
                 top: calc(50% - 204px);
+                background-position: center;
+                @media (max-width: $r_desk_min) {
+                    display: none;
+                }
                 
                 
             }
@@ -1001,11 +1081,15 @@ a {
 
         &._violin {
             &::before {
-                
+                width: clamp(300px, 23vw, 535px);
                 height: 401px;
-                width: 535px;
+                //width: 535px;
                 background-image: url(../images/areas/violin.png);
                 top: calc(50% - 200px);
+                background-position: center;
+                @media (max-width: $r_desk_min) {
+                    display: none;
+                }
                 
                 
             }
@@ -1013,11 +1097,15 @@ a {
 
         &._bas-guitar {
             &::before {
-                
+                width: clamp(300px, 23vw, 524px);
                 height: 372px;
-                width: 524px;
+                //width: 524px;
                 background-image: url(../images/areas/bas-guitar.png);
                 top: calc(50% - 160px);
+                background-position: center;
+                @media (max-width: $r_desk_min) {
+                    display: none;
+                }
                 
                 
             }
