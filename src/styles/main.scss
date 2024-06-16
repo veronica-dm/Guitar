@@ -773,10 +773,17 @@ a {
         @media (max-width: $r_desk_full) {
             height: min(672px, 47vw);
         }
+
+        @media (max-width: $r_tab) {
+           // height: min(237px, 49vw);
+           height: 237px;
+           width: 158px;
+       }
+       @media (max-width: $r_mobile_600) {
+        border-radius: $br-min;
+    }
         
-        // @media (max-width: $r_tab) {
-        //     height: min(355px, 49vw);
-        // }
+        
         @media (hover: hover) {
             &:hover {
                 border-color: $accent;
@@ -807,9 +814,11 @@ a {
         @media (max-width: $r_desk_full) {
             height: min(615px, 43vw);
         }
-        // @media (max-width: $r_tab) {
-        //     height: min(345px, 49vw);
-        // }
+        @media (max-width: $r_tab) {
+            // height: min(237px, 49vw);
+            height: 231px;
+        }
+        
     }
     &__name {
         width:100%;
@@ -843,6 +852,12 @@ a {
             left:inherit;
             @media (max-width: $r_tab){
                 display: block;
+                width:158px;
+            }
+            @media (max-width: $r_mobile_400){
+                
+                width:109px;
+                margin: 8px auto;
             }
             &::before {
                 display: none;

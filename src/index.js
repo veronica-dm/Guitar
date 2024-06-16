@@ -18,6 +18,10 @@ const swiper = new Swiper('.slider-teacher', {
     },
     modules: [Navigation, Pagination],
     breakpoints: {
+      500: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
       768: {
         slidesPerView: 3,
         spaceBetween: 15,
